@@ -1,0 +1,23 @@
+.activity-list-item{
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #f0f0f0;
+    border-radius: 10px;
+}
+.call-icon{
+    justify-self: center;
+}
+.caller-name{
+    font-size: 16px;
+}
+.via-info{
+    font-size: 12px;
+    color: #8b8b8b;
+}
+
+.call-time{
+    display: flex;
+}
