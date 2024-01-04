@@ -16,9 +16,36 @@ body {
 
 .list-type-tabs{
   display: flex;
-  
+  gap: 10px;
+  padding: 10px 10px 5px 10px;
 }
 .list-type-tabs>li{
   list-style: none;
   padding: 5px;
+  border: 1px solid #333333;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.list-type-tabs>li:hover{
+  transform: scale(1.02);
+}
+
+.list-type-tabs>.active{
+  background-color: #333333;
+  color: white;
+}
+.nav-buttons{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.archive-toggle-btn{
+  margin: 5px;
+  padding: 5px 10px;
+  background-color: bisque;
+  border-radius: 15px;
+  border: 1px solid #333;
 }

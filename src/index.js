@@ -7,6 +7,8 @@ import "./css/app.css";
 import "./css/header.css";
 import "./css/activityListItem.css";
 import "./css/activityList.css";
+import "./css/callDetailsContainer.css";
+import "./css/ShimmerUI.css";
 
 import App from "./App.jsx";
 

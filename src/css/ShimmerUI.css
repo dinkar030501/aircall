@@ -1,0 +1,34 @@
+.shimmer-item{
+    height: 50px;
+   
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #f0f0f0;
+    border-radius: 10px;
+}
+
+.shimmer-icon{
+   width: 20px;
+   height: 20px;
+   background-color: #dbdbdb;
+   border-radius: 50%;
+}
+.shimmer-name{
+    width: 40px;
+    height: 10px;
+    background-color: #dbdbdb;
+}
+.shimmer-via-info{
+    width: 60px;
+    height: 5px;
+    background-color: #dbdbdb;
+}
+
+.shimmer-call-time{
+    width: 10px;
+    height: 5px;
+    background-color: #dbdbdb;
+}
