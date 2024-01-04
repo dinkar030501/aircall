@@ -41,6 +41,9 @@ const Body = () => {
       <ActivityList
         listType={listType}
         isArchiveStatusUpdateForAll={isArchiveStatusUpdateForAll}
+        changeIsArchiveStatusUpdateForAll={() =>
+          setIsArchiveStatusUpdateForAll(false)
+        }
       />
     </div>
   );

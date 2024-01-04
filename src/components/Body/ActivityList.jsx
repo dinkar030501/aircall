@@ -3,13 +3,17 @@ import ActivityListItem from "./ActivityListItem.jsx";
 import { BASE_URL } from "../../constants/constants.js";
 import ShimmerUI from "./ShimmerUI.jsx";
 
-const ActivityList = ({ listType, isArchiveStatusUpdateForAll }) => {
+const ActivityList = ({
+  listType,
+  isArchiveStatusUpdateForAll,
+  changeIsArchiveStatusUpdateForAll,
+}) => {
   const [activityData, setactivityData] = useState([]);
   const [isActivityDataLoading, setIsActivityDataLoading] = useState(false);
 
   const fetchData = () => {
     setIsActivityDataLoading(true);
-    fetch(`${BASE_URL}/activites`)
+    fetch(`${BASE_URL}/activities`)
       .then((resp) => {
         return resp.json();
       })
@@ -30,7 +34,7 @@ const ActivityList = ({ listType, isArchiveStatusUpdateForAll }) => {
     const data = {
       is_archived: listType === "activity" ? true : false,
     };
-    return fetch(`${BASE_URL}/activites/${call_id}`, {
+    return fetch(`${BASE_URL}/activities/${call_id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -83,8 +87,12 @@ const ActivityList = ({ listType, isArchiveStatusUpdateForAll }) => {
   useEffect(() => {
     if (isArchiveStatusUpdateForAll) {
       if (listType === "activity") {
-        activityData.forEach((data) => {
-          patchArchiveStatus(data.id);
+        activityData.forEach((data, id) => {
+          patchArchiveStatus(data.id).then(() => {
+            if (id === activityData.length - 1) {
+              fetchData();
+            }
+          });
         });
       } else {
         fetch(`${BASE_URL}/reset`, {
@@ -92,8 +100,12 @@ const ActivityList = ({ listType, isArchiveStatusUpdateForAll }) => {
           headers: {
             "Content-Type": "application/json",
           },
+        }).then(() => {
+          fetchData();
         });
       }
+
+      changeIsArchiveStatusUpdateForAll();
     }
   });
 
